@@ -13,7 +13,7 @@ output = image.copy()
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # detect circles in the image
-circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 1, 100, param1=50, param2=20)
+circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 1.2, 100)
 # ensure at least some circles were found
 if circles is not None:
 	# convert the (x, y) coordinates and radius of the circles to integers
@@ -27,6 +27,6 @@ if circles is not None:
 	# show the output image
 	cv2.imshow("output", np.hstack([image, output]))
 	cv2.waitKey(0)
-    
+	cv.destroyAllWindows()
 
 
